@@ -3,103 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEESEA Store</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>NEESEA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
 body{
-font-family:'Poppins',sans-serif;
+font-family:'Inter',sans-serif;
 margin:0;
-background:#f6f7fb;
+background:#ffffff;
+color:#111;
 }
 
 header{
-background:#232f3e;
-color:white;
-padding:15px 30px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:18px 40px;
+border-bottom:1px solid #eee;
+position:sticky;
+top:0;
+background:white;
+}
+
+.logo{
+font-size:20px;
+font-weight:600;
+letter-spacing:1px;
 }
 
 nav a{
-color:white;
-margin-left:20px;
 text-decoration:none;
-font-weight:600;
+color:#333;
+margin-left:25px;
+font-size:14px;
 }
 
 .hero{
-background:linear-gradient(90deg,#ff7a18,#32d2aa);
-color:white;
-padding:70px 20px;
 text-align:center;
+padding:100px 20px 80px;
+background:#f7f7f7;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+color:#555;
 }
 
 .container{
-padding:40px;
 max-width:1200px;
 margin:auto;
+padding:60px 30px;
 }
 
-.grid{
+.products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
 }
 
-.card{
-background:white;
-border-radius:12px;
-box-shadow:0 5px 12px rgba(0,0,0,0.08);
-padding:20px;
+.product{
 text-align:center;
 }
 
-.card img{
+.product img{
 width:100%;
-height:160px;
+height:220px;
 object-fit:cover;
-border-radius:8px;
+border-radius:12px;
+background:#f2f2f2;
+}
+
+.product h3{
+margin:15px 0 5px;
+font-weight:500;
 }
 
 .price{
-font-size:18px;
-font-weight:600;
-margin:10px 0;
+color:#666;
+margin-bottom:12px;
 }
 
 button{
-background:#ff7a18;
-border:none;
+background:#111;
 color:white;
-padding:10px 16px;
-border-radius:6px;
+border:none;
+padding:10px 18px;
+border-radius:20px;
 cursor:pointer;
-font-weight:600;
+font-size:14px;
 }
 
-.cartBox{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
-margin-top:30px;
+.cart{
+background:#fafafa;
+padding:30px;
+border-radius:12px;
+margin-top:50px;
 }
 
 footer{
-background:#232f3e;
-color:white;
 text-align:center;
-padding:25px;
-margin-top:40px;
-}
-
-.pay{
-margin-top:15px;
-background:#0070ba;
+padding:40px;
+color:#777;
+border-top:1px solid #eee;
+margin-top:60px;
 }
 
 </style>
@@ -108,11 +120,11 @@ background:#0070ba;
 <body>
 
 <header>
-<h2>NEESEA</h2>
+<div class="logo">NEESEA</div>
 
 <nav>
 <a href="#">Home</a>
-<a href="#products">Shop</a>
+<a href="#products">Products</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 <a href="#cart">Cart (<span id="cartCount">0</span>)</a>
@@ -120,62 +132,61 @@ background:#0070ba;
 </header>
 
 <section class="hero">
-<h1>Welcome to NEESEA</h1>
-<p>Trending electronics & home products delivered to you</p>
+<h1>Simple. Smart. NEESEA.</h1>
+<p>Trending gadgets and lifestyle products shipped worldwide.</p>
 </section>
 
 <section class="container" id="products">
-<h2>Popular Products</h2>
 
-<div class="grid">
+<h2 style="text-align:center;margin-bottom:50px;">Trending Products</h2>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1518441902110-4c99e4f30f1c"/>
-<h3>Wireless Headphones</h3>
-<div class="price">$49</div>
-<button onclick="addToCart('Wireless Headphones',49)">Add to Cart</button>
-</div>
+<div class="products">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"/>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
 <h3>Smart Watch</h3>
 <div class="price">$79</div>
 <button onclick="addToCart('Smart Watch',79)">Add to Cart</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e"/>
-<h3>LED Desk Lamp</h3>
-<div class="price">$29</div>
-<button onclick="addToCart('LED Desk Lamp',29)">Add to Cart</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585386959984-a41552231658"/>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1585386959984-a41552231658">
 <h3>Portable Blender</h3>
 <div class="price">$39</div>
 <button onclick="addToCart('Portable Blender',39)">Add to Cart</button>
 </div>
 
+<div class="product">
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
+<h3>Wireless Headphones</h3>
+<div class="price">$49</div>
+<button onclick="addToCart('Wireless Headphones',49)">Add to Cart</button>
 </div>
-</section>
 
-<section class="container" id="cart">
-<h2>Your Cart</h2>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
+<h3>Galaxy Projector</h3>
+<div class="price">$29</div>
+<button onclick="addToCart('Galaxy Projector',29)">Add to Cart</button>
+</div>
 
-<div class="cartBox">
+</div>
+
+<div class="cart" id="cart">
+<h3>Your Cart</h3>
 <ul id="cartItems"></ul>
 
-<h3>Total: $<span id="total">0</span></h3>
+<p><strong>Total: $<span id="total">0</span></strong></p>
 
-<button class="pay" onclick="checkout()">Checkout with PayPal</button>
+<button onclick="checkout()">Checkout</button>
 
 </div>
+
 </section>
 
 <section class="container" id="about">
 <h2>About NEESEA</h2>
-<p>NEESEA is an online store offering trending electronics, home items and gadgets. Our goal is to deliver quality products worldwide.</p>
+<p>NEESEA is a modern online store delivering trending gadgets and lifestyle products around the world. We focus on simple design, quality products, and fast global shipping.</p>
 </section>
 
 <section class="container" id="contact">
@@ -184,7 +195,7 @@ background:#0070ba;
 </section>
 
 <footer>
-<p>© 2026 NEESEA Store</p>
+© 2026 NEESEA Store
 </footer>
 
 <script>
@@ -210,11 +221,10 @@ document.getElementById("cartItems").appendChild(li)
 }
 
 function checkout(){
-alert("PayPal checkout will be connected later.")
+alert("Payment system will be connected next.")
 }
 
 </script>
 
 </body>
 </html>
-
