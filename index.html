@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEESEA</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<title>NEESEA Store</title>
 
 <style>
 
 body{
-font-family:'Inter',sans-serif;
+font-family:Arial;
 margin:0;
 background:#ffffff;
 color:#111;
@@ -19,52 +18,32 @@ header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 40px;
+padding:20px 40px;
 border-bottom:1px solid #eee;
-position:sticky;
-top:0;
-background:white;
-}
-
-.logo{
-font-size:20px;
-font-weight:600;
-letter-spacing:1px;
 }
 
 nav a{
+margin-left:20px;
 text-decoration:none;
 color:#333;
-margin-left:25px;
-font-size:14px;
 }
 
 .hero{
 text-align:center;
-padding:100px 20px 80px;
-background:#f7f7f7;
-}
-
-.hero h1{
-font-size:48px;
-margin-bottom:10px;
-}
-
-.hero p{
-font-size:18px;
-color:#555;
+padding:80px 20px;
+background:#f5f5f7;
 }
 
 .container{
 max-width:1200px;
 margin:auto;
-padding:60px 30px;
+padding:40px;
 }
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:40px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
 }
 
 .product{
@@ -73,37 +52,30 @@ text-align:center;
 
 .product img{
 width:100%;
-height:220px;
+height:180px;
 object-fit:cover;
-border-radius:12px;
-background:#f2f2f2;
-}
-
-.product h3{
-margin:15px 0 5px;
-font-weight:500;
+border-radius:10px;
 }
 
 .price{
-color:#666;
-margin-bottom:12px;
+margin:10px 0;
+color:#555;
 }
 
 button{
-background:#111;
+background:black;
 color:white;
 border:none;
-padding:10px 18px;
+padding:10px 16px;
 border-radius:20px;
 cursor:pointer;
-font-size:14px;
 }
 
 .cart{
-background:#fafafa;
-padding:30px;
-border-radius:12px;
-margin-top:50px;
+margin-top:40px;
+padding:20px;
+background:#f7f7f7;
+border-radius:10px;
 }
 
 footer{
@@ -111,7 +83,7 @@ text-align:center;
 padding:40px;
 color:#777;
 border-top:1px solid #eee;
-margin-top:60px;
+margin-top:40px;
 }
 
 </style>
@@ -120,78 +92,83 @@ margin-top:60px;
 <body>
 
 <header>
-<div class="logo">NEESEA</div>
-
+<h2>NEESEA</h2>
 <nav>
 <a href="#">Home</a>
 <a href="#products">Products</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
 <a href="#cart">Cart (<span id="cartCount">0</span>)</a>
 </nav>
 </header>
 
 <section class="hero">
-<h1>Simple. Smart. NEESEA.</h1>
-<p>Trending gadgets and lifestyle products shipped worldwide.</p>
+<h1>Trending Products</h1>
+<p>Affordable gadgets & lifestyle products worldwide</p>
 </section>
 
-<section class="container" id="products">
-
-<h2 style="text-align:center;margin-bottom:50px;">Trending Products</h2>
+<section class="container">
 
 <div class="products">
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
-<h3>Smart Watch</h3>
-<div class="price">$79</div>
-<button onclick="addToCart('Smart Watch',79)">Add to Cart</button>
-</div>
+<!-- 25 PRODUCTS -->
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1585386959984-a41552231658">
-<h3>Portable Blender</h3>
-<div class="price">$39</div>
-<button onclick="addToCart('Portable Blender',39)">Add to Cart</button>
-</div>
+<div class="product"><img src="https://picsum.photos/300?1"><h3>Magnetic Phone Charger</h3><div class="price">$15</div><button onclick="addToCart('Magnetic Phone Charger',15)">Add</button></div>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
-<h3>Wireless Headphones</h3>
-<div class="price">$49</div>
-<button onclick="addToCart('Wireless Headphones',49)">Add to Cart</button>
-</div>
+<div class="product"><img src="https://picsum.photos/300?2"><h3>Mini Bluetooth Speaker</h3><div class="price">$18</div><button onclick="addToCart('Mini Bluetooth Speaker',18)">Add</button></div>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
-<h3>Galaxy Projector</h3>
-<div class="price">$29</div>
-<button onclick="addToCart('Galaxy Projector',29)">Add to Cart</button>
-</div>
+<div class="product"><img src="https://picsum.photos/300?3"><h3>Smart LED Clock</h3><div class="price">$22</div><button onclick="addToCart('Smart LED Clock',22)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?4"><h3>Phone Cooling Fan</h3><div class="price">$14</div><button onclick="addToCart('Phone Cooling Fan',14)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?5"><h3>LED Ring Light</h3><div class="price">$19</div><button onclick="addToCart('LED Ring Light',19)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?6"><h3>Sunset Projection Lamp</h3><div class="price">$21</div><button onclick="addToCart('Sunset Projection Lamp',21)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?7"><h3>Galaxy Projector</h3><div class="price">$27</div><button onclick="addToCart('Galaxy Projector',27)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?8"><h3>LED Strip Lights</h3><div class="price">$17</div><button onclick="addToCart('LED Strip Lights',17)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?9"><h3>Motion Sensor Light</h3><div class="price">$16</div><button onclick="addToCart('Motion Sensor Light',16)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?10"><h3>Smart Desk Lamp</h3><div class="price">$24</div><button onclick="addToCart('Smart Desk Lamp',24)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?11"><h3>Portable Blender</h3><div class="price">$29</div><button onclick="addToCart('Portable Blender',29)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?12"><h3>Electric Milk Frother</h3><div class="price">$15</div><button onclick="addToCart('Electric Milk Frother',15)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?13"><h3>Vegetable Chopper</h3><div class="price">$18</div><button onclick="addToCart('Vegetable Chopper',18)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?14"><h3>Auto Soap Dispenser</h3><div class="price">$20</div><button onclick="addToCart('Auto Soap Dispenser',20)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?15"><h3>Kitchen Scale</h3><div class="price">$23</div><button onclick="addToCart('Kitchen Scale',23)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?16"><h3>Car Phone Holder</h3><div class="price">$14</div><button onclick="addToCart('Car Phone Holder',14)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?17"><h3>Car Vacuum</h3><div class="price">$28</div><button onclick="addToCart('Car Vacuum',28)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?18"><h3>Car LED Lights</h3><div class="price">$19</div><button onclick="addToCart('Car LED Lights',19)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?19"><h3>Car Trash Bin</h3><div class="price">$13</div><button onclick="addToCart('Car Trash Bin',13)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?20"><h3>Seat Gap Filler</h3><div class="price">$16</div><button onclick="addToCart('Seat Gap Filler',16)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?21"><h3>LED Message Backpack</h3><div class="price">$35</div><button onclick="addToCart('LED Message Backpack',35)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?22"><h3>Mini Photo Printer</h3><div class="price">$39</div><button onclick="addToCart('Mini Photo Printer',39)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?23"><h3>Rechargeable Hand Warmer</h3><div class="price">$21</div><button onclick="addToCart('Hand Warmer',21)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?24"><h3>Smart Water Bottle</h3><div class="price">$26</div><button onclick="addToCart('Smart Water Bottle',26)">Add</button></div>
+
+<div class="product"><img src="https://picsum.photos/300?25"><h3>Foldable Laptop Stand</h3><div class="price">$18</div><button onclick="addToCart('Laptop Stand',18)">Add</button></div>
 
 </div>
 
 <div class="cart" id="cart">
 <h3>Your Cart</h3>
 <ul id="cartItems"></ul>
-
 <p><strong>Total: $<span id="total">0</span></strong></p>
-
-<button onclick="checkout()">Checkout</button>
-
 </div>
 
-</section>
-
-<section class="container" id="about">
-<h2>About NEESEA</h2>
-<p>NEESEA is a modern online store delivering trending gadgets and lifestyle products around the world. We focus on simple design, quality products, and fast global shipping.</p>
-</section>
-
-<section class="container" id="contact">
-<h2>Contact</h2>
-<p>Email: support@neesea.com</p>
 </section>
 
 <footer>
@@ -210,7 +187,6 @@ cart.push({name,price})
 total+=price
 
 document.getElementById("cartCount").innerText=cart.length
-
 document.getElementById("total").innerText=total
 
 let li=document.createElement("li")
@@ -218,10 +194,6 @@ li.innerText=name+" - $"+price
 
 document.getElementById("cartItems").appendChild(li)
 
-}
-
-function checkout(){
-alert("Payment system will be connected next.")
 }
 
 </script>
