@@ -1,65 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEESEA Store</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
 body{
-font-family:Arial;
+font-family:'Poppins',sans-serif;
 margin:0;
-background:#f4f4f4;
+background:#f6f7fb;
 }
 
 header{
 background:#232f3e;
 color:white;
-padding:15px;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 nav a{
 color:white;
-margin-right:15px;
+margin-left:20px;
 text-decoration:none;
-font-weight:bold;
+font-weight:600;
 }
 
 .hero{
 background:linear-gradient(90deg,#ff7a18,#32d2aa);
 color:white;
-padding:60px;
+padding:70px 20px;
 text-align:center;
 }
 
 .container{
 padding:40px;
+max-width:1200px;
+margin:auto;
 }
 
-.product{
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.card{
 background:white;
+border-radius:12px;
+box-shadow:0 5px 12px rgba(0,0,0,0.08);
 padding:20px;
-margin:15px;
-border-radius:10px;
-display:inline-block;
-width:200px;
+text-align:center;
+}
+
+.card img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:8px;
+}
+
+.price{
+font-size:18px;
+font-weight:600;
+margin:10px 0;
 }
 
 button{
 background:#ff7a18;
 border:none;
-padding:10px;
 color:white;
-border-radius:5px;
+padding:10px 16px;
+border-radius:6px;
 cursor:pointer;
+font-weight:600;
+}
+
+.cartBox{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+margin-top:30px;
 }
 
 footer{
 background:#232f3e;
 color:white;
 text-align:center;
-padding:20px;
+padding:25px;
 margin-top:40px;
+}
+
+.pay{
+margin-top:15px;
+background:#0070ba;
 }
 
 </style>
@@ -72,50 +112,109 @@ margin-top:40px;
 
 <nav>
 <a href="#">Home</a>
-<a href="#">Shop</a>
-<a href="#">Categories</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
+<a href="#products">Shop</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+<a href="#cart">Cart (<span id="cartCount">0</span>)</a>
 </nav>
-
 </header>
 
 <section class="hero">
-
 <h1>Welcome to NEESEA</h1>
-<p>Your online store for electronics and home items</p>
-
+<p>Trending electronics & home products delivered to you</p>
 </section>
 
-<section class="container">
+<section class="container" id="products">
+<h2>Popular Products</h2>
 
-<h2>Products</h2>
+<div class="grid">
 
-<div class="product">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1518441902110-4c99e4f30f1c"/>
 <h3>Wireless Headphones</h3>
-<p>$49</p>
-<button>Add to Cart</button>
+<div class="price">$49</div>
+<button onclick="addToCart('Wireless Headphones',49)">Add to Cart</button>
 </div>
 
-<div class="product">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"/>
 <h3>Smart Watch</h3>
-<p>$79</p>
-<button>Add to Cart</button>
+<div class="price">$79</div>
+<button onclick="addToCart('Smart Watch',79)">Add to Cart</button>
 </div>
 
-<div class="product">
-<h3>LED Lamp</h3>
-<p>$29</p>
-<button>Add to Cart</button>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e"/>
+<h3>LED Desk Lamp</h3>
+<div class="price">$29</div>
+<button onclick="addToCart('LED Desk Lamp',29)">Add to Cart</button>
 </div>
 
+<div class="card">
+<img src="https://images.unsplash.com/photo-1585386959984-a41552231658"/>
+<h3>Portable Blender</h3>
+<div class="price">$39</div>
+<button onclick="addToCart('Portable Blender',39)">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+<section class="container" id="cart">
+<h2>Your Cart</h2>
+
+<div class="cartBox">
+<ul id="cartItems"></ul>
+
+<h3>Total: $<span id="total">0</span></h3>
+
+<button class="pay" onclick="checkout()">Checkout with PayPal</button>
+
+</div>
+</section>
+
+<section class="container" id="about">
+<h2>About NEESEA</h2>
+<p>NEESEA is an online store offering trending electronics, home items and gadgets. Our goal is to deliver quality products worldwide.</p>
+</section>
+
+<section class="container" id="contact">
+<h2>Contact</h2>
+<p>Email: support@neesea.com</p>
 </section>
 
 <footer>
-
 <p>© 2026 NEESEA Store</p>
-
 </footer>
+
+<script>
+
+let cart=[]
+let total=0
+
+function addToCart(name,price){
+
+cart.push({name,price})
+
+total+=price
+
+document.getElementById("cartCount").innerText=cart.length
+
+document.getElementById("total").innerText=total
+
+let li=document.createElement("li")
+li.innerText=name+" - $"+price
+
+document.getElementById("cartItems").appendChild(li)
+
+}
+
+function checkout(){
+alert("PayPal checkout will be connected later.")
+}
+
+</script>
 
 </body>
 </html>
+
